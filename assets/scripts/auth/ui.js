@@ -1,6 +1,8 @@
 'use strict'
 
 const store = require('../store')
+const profile = require('./../profile/api')
+// const profileUI = require('./../profile/ui')
 
 const signUpSuccess = (data) => {
   // please do not leave this in your production application
@@ -35,6 +37,13 @@ const signInSuccess = (data) => {
   // for now
   $('#welcome-pg').hide(500)
   $('#concerts-table').show(500)
+  // get profile
+  profile.index()
+  .catch((error) => {
+    $('div#statusBar').text('Could not get your profile -  ' + error.statusText)
+    $('div#statusBar').show(3000)
+    $('div#statusBar').hide(5000)
+  })
 }
 
 const signInFailure = () => {
@@ -81,7 +90,7 @@ const signOutSuccess = () => {
   // $('#show-my-recipes-btn').prop('disabled', true)
   // $('#add-recipe-btn').prop('disabled', true)
 
-  $('#recipes-table').hide(500)
+  $('#concerts-table').hide(500)
   $('#welcome-pg').show(500)
 }
 

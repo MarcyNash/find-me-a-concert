@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Find Mke A Concert</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags unless you know what you are doing -->
@@ -12,6 +12,7 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
+
       <nav class="navbar navbar-default navbar-static-top">
     <!-- <div class="col-xs-3 col-md-3"> -->
     <div class="button-group">
@@ -21,11 +22,14 @@
       <button type="button" id="sign-out-btn" class="btn btn-default btn-lg ttt-nav-btns" disabled="true" data-toggle="modal" data-target="#signOut" name="sign-me-out">Sign Out</button>
       <!-- Buttons are put in reverse from how they appear on the nav bar.  There's probably a better way! -->
       <div class="navbar-right">
-        <button id="show-my-recipes-btn" type="button" class="btn btn-default btn-lg ttt-nav-btns" disabled="true" data-target="#show-recipes" name="show-my-recipes">My Recipes</button>
+        <button id="update-profile-btn" type="button" class="btn btn-default btn-lg ttt-nav-btns"  data-target="#updateProfile"  data-toggle="modal"  name="edit-profile-modal">Update Profile</button>
       </div>
       <div class="navbar-right">
-        <button id="add-recipe-btn" type="button" class="btn btn-default btn-lg ttt-nav-btns" disabled="true" data-toggle="modal" data-target="#addRecipe" name="add-my-recipe">Add Recipe</button>
+        <button id="create-profile-btn" type="button" class="btn btn-default btn-lg ttt-nav-btns" data-toggle="modal"  data-target="#createProfile" name="create-profile">Create Profile</button>
       </div>
+      <!-- <div class="navbar-right">
+        <button id="-btn" type="button" class="btn btn-default btn-lg ttt-nav-btns" disabled="true" data-toggle="modal" data-target="#addRecipe" name="add-my-recipe">Add Recipe</button>
+      </div> -->
     </div>
   </nav>
   <!-- </div> -->
@@ -33,8 +37,6 @@
     <div hidden="true "id="statusBar" class="panel-body">
 <div  class="col-sm-12">
   <p id="msg" >
-
-
 </p>
 </div>
 </div>
@@ -43,10 +45,10 @@
 
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h1>Where In The World Is My Recipe?</h1></div>
+      <h1>Find Me A Concert</h1></div>
       <div id="welcome-pg">
         <p>
-          <h4>Looking for a concert to go to? Then <span  id="website-name">Find Me A Concert.</span> is for you! Keep a list of your recipes and where they are located. To begin, sign up. Then sign in to view upcoming concerts which you can save to your profile. All upcoming concerts in the Boston area !</h4>
+          <h4>Looking for a concert to go to? Then <span  id="website-name">Find Me A Concert</span> is for you! Keep a list of your recipes and where they are located. To begin, sign up. Then sign in to view upcoming concerts which you can save to your profile. See upcoming concerts in the Boston area !</h4>
         </p>
         </div>
       <div id="concerts-table" class="table-responsive concerts-table" hidden="true">
@@ -172,88 +174,70 @@
     </div>
   </form>
 
-  <!-- Add Recipe Modal -->
-  <form id="add-recipe" class="form-horizontal">
-    <div class="modal fade" id="addRecipe" tabindex="-1" role="dialog" aria-labelledby="Add Recipe">
+  <!-- Create Profile Modal -->
+  <form id="create-profile-form" class="form-horizontal">
+    <div class="modal fade" id="createProfile" tabindex="-1" role="dialog" aria-labelledby="Create Profile">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" id="add-recipe-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Add Recipe</h4>
+            <button type="button" id="create-profile-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Create Profile</h4>
           </div>
           <div class="modal-body">
             <div class="form-group">
-              <label for="recipe-name" class="col-sm-2 control-label">Name</label>
+              <label for="profile-user-name" class="col-sm-2 control-label">User Name</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="recipe-name" name="[recipe][name]" value="">
+                <input type="text" class="form-control" id="create-name" name="[profile][user_name]" value="">
               </div>
             </div>
             <div class="form-group">
-              <label for="location" class="col-sm-2 control-label">Location</label>
+              <label for="about-me" class="col-sm-2 control-label">About Me</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="location" name="[recipe][location]" value="">
+                <textarea class="form-control" rows="3" id="create-about-me" name="[profile][about_me]">
+                </textarea>
               </div>
             </div>
-            <div class="form-group">
-              <label for="comment" class="col-sm-2 control-label">Comment</label>
-              <div class="col-sm-10">
-                <!-- <input type="text" class="form-control" id="comment" name="[recipe][comment]" value=""> -->
-                <textarea class="form-control" rows="3" id="comment" name="[recipe][comment]"></textarea>
-              </div>
             </div>
-          </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <input type="submit" name="submit" class="btn btn-default" value="Save Recipe">
+            <input type="submit" name="submit" class="btn btn-default" value="Save Profile">
           </div>
         </div>
       </div>
-    </div>
+      </div>
   </form>
 
-  <!-- Update Recipe Gorm -->
-
-  <form id="update-recipe" class="form-horizontal">
-    <div class="modal fade" id="updateRecipe" tabindex="-1" role="dialog" aria-labelledby="Update Recipe">
+  <!-- Create Profile Modal -->
+  <form id="update-profile-form" class="form-horizontal">
+    <div class="modal fade" id="updateProfile" tabindex="-1" role="dialog" aria-labelledby="Update Profile">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" id="update-recipe-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">UUU</h4>
+            <button type="button" id="update-profile-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Update Profile</h4>
           </div>
           <div class="modal-body">
-    <div class="form-group">
-      <label class="col-sm-2 control-label">Name</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control urname" name="[recipe][name]" value="">
+            <div class="form-group">
+              <label for="update-user-name" class="col-sm-2 control-label">User Name</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="update-user-name" name="[profile][user_name]" value="">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="update-about-me" class="col-sm-2 control-label">About Me</label>
+              <div class="col-sm-10">
+                <textarea class="form-control" rows="3" id="update-about-me" name="[profile][about_me]">
+                </textarea>
+              </div>
+            </div>
+            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <input type="submit" name="submit" class="btn btn-default" value="Update Profile">
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <label class="col-sm-2 control-label">Location</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control urlocation" name="[recipe][location]" value="">
       </div>
-    </div>
-    <div class="form-group">
-      <label class="col-sm-2 control-label">Comment</label>
-      <div class="col-sm-10">
-        <!-- <input type="text" class="form-control" id="comment" name="[recipe][comment]" value=""> -->
-        <textarea class="form-control urcomment" rows="3" name="[recipe][comment]"></textarea>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-sm-10">
-        <input type="text" class="form-control urid" name="recipeID" disabled="true" value="">
-      </div>
-      <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-    <input type="submit" name="submit" class="btn btn-default" value="Save Recipe">
-  </div>
-</div>
-</div>
-</div>
-</div>
-</div>
   </form>
 
 

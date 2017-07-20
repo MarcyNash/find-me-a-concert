@@ -1,0 +1,11 @@
+{{#each concerts as |concert|}}
+
+  <tr data-id="{{concert.id}}">
+    <!-- <td data-id="{{concert.id}}"><button id="editRecipe{{concert.id}}" class="btn btn-default editRecipe" data-toggle="modal" data-target="#updateRecipe">Edit</button></td>
+    <td data-id="{{concert.id}}"><button id="deleteRecipe{{concert.id}}" class="btn btn-default deleteRecipe">Delete</button></td> -->
+    <td class='rname' name="[concert][name]">{{concert.name}}</td>
+    <td class='rlocation' name="[concert][location]">{{concert.location}}</td>
+    <td class='rcomment' name="[concert][comment]">{{concert.comment}}</td>
+  </tr>
+
+{{/each}}
