@@ -37,13 +37,27 @@ const signInSuccess = (data) => {
   // for now
   $('#welcome-pg').hide(500)
   $('#concerts-table').show(500)
+  $('#show-concerts-btn').show()
+  $('#show-my-concerts-btn').show()
   // get profile
   profile.index()
   .catch((error) => {
-    $('div#statusBar').text('Could not get your profile -  ' + error.statusText)
-    $('div#statusBar').show(3000)
-    $('div#statusBar').hide(5000)
+    if (error.status === 404) {
+      console.log('404')
+    } else {
+      console.log(error.status + ' ' + error.statusText)
+    }
+    // $('div#statusBar').text('Could not get your profile -  ' + error.statusText)
+    // $('div#statusBar').show(3000)
+    // $('div#statusBar').hide(5000)
   })
+  if (store.profile === undefined) {
+    $('#create-profile-btn').show()
+    $('#update-profile-btn').hide()
+  } else {
+    $('#update-profile-btn').show()
+    $('#create-profile-btn').hide()
+  }
 }
 
 const signInFailure = () => {
@@ -86,6 +100,10 @@ const signOutSuccess = () => {
   $('#sign-out-btn').prop('disabled', true)
   $('#sign-up-btn').prop('disabled', false)
   $('#sign-in-btn').prop('disabled', false)
+  $('#show-concerts-btn').hide()
+  $('#show-my-concerts-btn').hide()
+  $('#update-profile-btn').hide()
+  $('#create-profile-btn').hide()
 
   // $('#show-my-recipes-btn').prop('disabled', true)
   // $('#add-recipe-btn').prop('disabled', true)

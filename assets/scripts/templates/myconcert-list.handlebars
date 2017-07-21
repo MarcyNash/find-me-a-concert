@@ -1,10 +1,9 @@
-{{#each concerts as |concert|}}
+{{#each myconcerts as |myconcert|}}
 
   <tr data-id="{{concert.id}}">
-    <td data-id="{{concert.id}}"><button id="saveConcert" class="btn btn-default saveConcert" data-target="#saveConcert">Save</button></td>
-  </td>
+    <td data-id="{{concert.id}}"><button id="deleteConcert" class="btn btn-default deleteConcert" data-target="#deleteConcert">Delete From My List</button></td>
     <td class='cname'>{{concert.concert_name}}</td>
-    <td class='cdate'>{{concert.concert_date}}</td>
+    <td class='cdatetime'>{{concert.concert_date}}</td>
     <td class='cartist'>{{concert.artist}}</td>
     <td class='cvenue'>{{concert.venue}}</td>
     <td class='caddress'>{{concert.venue_address}}</td>

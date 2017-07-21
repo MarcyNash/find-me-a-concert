@@ -12,7 +12,10 @@ const index = function () {
     }
   })
   .then((response) => {
-    store.profiles = response.profiles
+    console.log('got profile')
+    store.profile = response.profile
+    $('#update-profile-btn').show()
+    $('#create-profile-btn').hide()
   })
 }
 

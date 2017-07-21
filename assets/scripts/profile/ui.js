@@ -37,6 +37,8 @@ const onUpdateProfileFailure = (error) => {
 
 const onCreateProfileSuccess = () => {
   $('#create-profile-close').click()
+  $('#update-profile-btn').show()
+  $('#create-profile-btn').hide()
   // const profileToArray = []
   // profileToArray.push(profileEngine.profile)
   // const showProfilesHtml = showProfilesTemplate({ profiles: profileToArray })
@@ -45,6 +47,7 @@ const onCreateProfileSuccess = () => {
 }
 
 const onCreateProfileFailure = (error) => {
+  $('#create-profile-close').click()
   $('div#statusBar').text('Add profile failed. Status = ' + error.status + ' ' + error.statusText)
   $('div#statusBar').show(3000)
   $('div#statusBar').hide(5000)
