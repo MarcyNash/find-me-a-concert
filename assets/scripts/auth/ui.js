@@ -9,14 +9,14 @@ const signUpSuccess = (data) => {
   // instead, you probably want to manipulate the DOM,
   // for example, put up default view
   $('#sign-up-close').click()
-  $('#sign-up-modal').trigger('reset')
+  $('#sign-up').trigger('reset')
   // $('#sign-up-btn').prop('disabled', true)
   // $('#notifications').text('Sign Up succeeded. Please log in to play Tic-Tac-Toe.')
 }
 
 const signUpFailure = (error) => {
   $('#sign-up-close').click()
-  $('#sign-up-modal').trigger('reset')
+  $('#sign-up').trigger('reset')
   $('#sign-up-btn').prop('disabled', false)  // ??? this button automatically disabled after failure
   $('div#statusBar').text('Sign Up failed. Status = ' + error.status + ' ' + error.statusText)
   $('div#statusBar').show(3000)
@@ -25,7 +25,7 @@ const signUpFailure = (error) => {
 
 const signInSuccess = (data) => {
   $('#sign-in-close').click()   // close sign-in modal dlg
-  $('#sign-in-modal').trigger('reset')
+  $('#sign-in').trigger('reset')
 
   // $('#show-my-recipes-btn').prop('disabled', false)
   // $('#add-recipe-btn').prop('disabled', false)
@@ -34,11 +34,19 @@ const signInSuccess = (data) => {
   $('#sign-up-btn').prop('disabled', true)
   $('#sign-in-btn').prop('disabled', true)
 
+  $('#create-profile-btn').removeClass('hidden')
+  $('#update-profile-btn').removeClass('hidden')
+  // $('#show-concerts-btn').removeClass('hidden')
+  // $('#show-my-concerts-btn').removeClass('hidden')
+
+  $('#create-profile-btn').hide()
+  $('#update-profile-btn').hide()
+  // $('#show-my-concerts-btn').hide()
   // for now
-  $('#welcome-pg').hide(500)
-  $('#concerts-table').show(500)
-  $('#show-concerts-btn').show()
-  $('#show-my-concerts-btn').show()
+  // $('#welcome-pg').hide(500)
+  // $('#concerts-table').show(500)
+  // $('#show-concerts-btn').show()
+  // $('#show-my-concerts-btn').show()
   // get profile
   profile.index()
   .catch((error) => {
@@ -54,15 +62,19 @@ const signInSuccess = (data) => {
   if (store.profile === undefined) {
     $('#create-profile-btn').show()
     $('#update-profile-btn').hide()
+    $('#show-my-concerts-btn').prop('disabled', true)
+    $('#show-concerts-btn').prop('disabled', false)
   } else {
     $('#update-profile-btn').show()
     $('#create-profile-btn').hide()
+    $('#show-concerts-btn').prop('disabled', false)
+    $('#show-my-concerts-btn').prop('disabled', false)
   }
 }
 
 const signInFailure = () => {
   $('#sign-in-close').click()   // close sign-in modal dlg
-  $('#sign-in-modal').trigger('reset')
+  $('#sign-in').trigger('reset')
   $('#sign-up-btn').prop('disabled', false)
   $('div#statusBar').text('Sign In failed. Please check that your email and password are correct.')
   $('div#statusBar').show(3000)
@@ -81,7 +93,7 @@ const changePasswordSuccess = (data) => {
 const changePasswordFailure = (error) => {
   // tell user there is an error
   $('#change-password-close').click()
-  $('#change-password-modal').trigger('reset')
+  $('#change-password').trigger('reset')
   $('div#statusBar').text('Change Password failed. Status = ' + error.status + ' ' + error.statusText)
   $('div#statusBar').show(3000)
   $('div#statusBar').hide(5000)
@@ -100,8 +112,8 @@ const signOutSuccess = () => {
   $('#sign-out-btn').prop('disabled', true)
   $('#sign-up-btn').prop('disabled', false)
   $('#sign-in-btn').prop('disabled', false)
-  $('#show-concerts-btn').hide()
-  $('#show-my-concerts-btn').hide()
+  $('#show-concerts-btn').prop('disabled', true)
+  $('#show-my-concerts-btn').prop('disabled', true)
   $('#update-profile-btn').hide()
   $('#create-profile-btn').hide()
 

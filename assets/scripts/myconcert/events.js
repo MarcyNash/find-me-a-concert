@@ -10,6 +10,7 @@ const onSaveConcert = function (event) {
   event.preventDefault()
   console.log('onSaveConcert')
   const concertID = event.currentTarget.parentNode.getAttribute('data-id')
+  $('event.currentTarget').prop('disabled', true)
   const profileID = store.profile.id
   const data = {
     'myconcert': {
