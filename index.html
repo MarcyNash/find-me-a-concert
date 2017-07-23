@@ -22,6 +22,12 @@
       <button type="button" id="change-password-btn" class="btn btn-default btn-lg ttt-nav-btns" disabled="true" data-toggle="modal" data-target="#changePassword" name="change-my-password">Change Password</button>
       <button type="button" id="sign-out-btn" class="btn btn-default btn-lg ttt-nav-btns" disabled="true" data-toggle="modal" data-target="#signOut" name="sign-me-out">Sign Out</button>
       <!-- Buttons are put in reverse from how they appear on the nav bar.  There's probably a better way! -->
+      <form id="filter-concerts-form" class="navbar-form navbar-right">
+       <div class="form-group">
+         <input type="text" class="form-control" placeholder="Filter Concerts filterText" value="">
+       </div>
+       <button type="submit" class="btn btn-default">Filter</button>
+     </form>
       <div class="navbar-right">
         <button id="update-profile-btn" type="button"  class="btn btn-default btn-lg ttt-nav-btns" data-target="#updateProfile" data-toggle="modal"  name="edit-profile-modal">Update Profile</button>
       </div>
@@ -57,6 +63,7 @@
         </div>
       <div id="concerts-table" class="table-responsive concerts-table" hidden="true">
         <table class="table table-striped table-bordered">
+          <caption class="text-center">All Concerts</caption>
           <thead>
             <tr>
               <th></th>
