@@ -34,8 +34,8 @@ const signInSuccess = (data) => {
   $('#sign-up-btn').prop('disabled', true)
   $('#sign-in-btn').prop('disabled', true)
 
-  $('#create-profile-btn').removeClass('hidden')
-  $('#update-profile-btn').removeClass('hidden')
+  // $('#create-profile-btn').removeClass('hidden')
+  // $('#update-profile-btn').removeClass('hidden')
   // $('#show-concerts-btn').removeClass('hidden')
   // $('#show-my-concerts-btn').removeClass('hidden')
 

@@ -10,7 +10,8 @@ const onSaveConcert = function (event) {
   event.preventDefault()
   console.log('onSaveConcert')
   const concertID = event.currentTarget.parentNode.getAttribute('data-id')
-  $('event.currentTarget').prop('disabled', true)
+  event.currentTarget.disabled = true
+  event.currentTarget.textContent = 'Saved'
   const profileID = store.profile.id
   const data = {
     'myconcert': {
@@ -48,19 +49,21 @@ const onGetMyConcerts = function (event) {
 //   .catch(ui.onCreateMyConcertFailure)
 // }
 //
-// const onDeleteMyConcert = function (event) {
-//   event.preventDefault()
-//   const recipeID = event.currentTarget.parentNode.getAttribute('data-id')
-//   api.destroy(recipeID)
-//   .then(ui.onDestroyMyConcertSuccess)
-//   .catch(ui.onDestroyMyConcertFailure)
-// }
+const onDeleteMyConcert = function (event) {
+  console.log('onDeleteMyConcert')
+  event.preventDefault()
+  const concertID = event.currentTarget.parentNode.getAttribute('data-id')
+  api.destroy(concertID)
+  .then(ui.onDestroyMyConcertSuccess)
+  .catch(ui.onDestroyMyConcertFailure)
+}
 
 const addHandlers = () => {
   // $('#add-recipe').on('submit', onCreateConcert)
   // $('#update-recipe').on('show.bs.modal', onShowUpdateForm)
   $('#show-my-concerts-btn').on('click', onGetMyConcerts)
   $('body').on('click', '.saveConcert', onSaveConcert)
+  $('body').on('click', '.deleteConcert', onDeleteMyConcert)
   // $('#show-concerts-btn').on('click', onGetConcerts)
 }
 

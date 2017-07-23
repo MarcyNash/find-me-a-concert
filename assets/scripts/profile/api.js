@@ -16,6 +16,9 @@ const index = function () {
     store.profile = response.profile
     $('#update-profile-btn').show()
     $('#create-profile-btn').hide()
+    $('#show-concerts-btn').prop('disabled', false)
+    $('#show-my-concerts-btn').prop('disabled', false)
+    // initialize update profile dialog
   })
 }
 
