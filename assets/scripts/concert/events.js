@@ -15,11 +15,12 @@ const onGetConcerts = function (event) {
 
 const onFilterConcerts = function (event) {
   event.preventDefault()
-  // const form = $('#filter-concerts-form')
-  // const data = form.find('.filterText').text()
+  const data = $('#filter-concerts-form').find('.filterText').val()
 
-  console.log('onFilterConcerts')
-  ui.displayMatches('woodstock')
+  console.log('onFilterConcerts with filter text - ' + data)
+  ui.displayMatches(data)
+
+  $('#filter-concerts-form').trigger('reset')
   // api.index()
   // .then(ui.onGetConcertsSuccess)
   // .catch(ui.onGetConcertsFailure)
