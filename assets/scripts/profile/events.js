@@ -26,8 +26,8 @@ const onUpdateProfile = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.create(data)
-  .then(ui.onUodateProfileSuccess)
-  .catch(ui.onUodateProfileFailure)
+  .then(ui.onUpdateProfileSuccess)
+  .catch(ui.onUpdateProfileFailure)
 }
 
 const onDeleteProfile = function (event) {

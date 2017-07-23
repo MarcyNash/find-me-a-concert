@@ -14,7 +14,7 @@ const profileEngine = require('../store')
 // }
 
 const onGetProfileSuccess = (response) => {
-
+  console.log('onGetProfileSuccess')
 }
 
 const onGetProfileFailure = (error) => {
@@ -37,6 +37,7 @@ const onUpdateProfileFailure = (error) => {
 
 const onCreateProfileSuccess = () => {
   $('#create-profile-close').click()
+  $('#create-profile-form').trigger('reset')
   $('#update-profile-btn').show()
   $('#create-profile-btn').hide()
   // const profileToArray = []

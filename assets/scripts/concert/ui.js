@@ -1,8 +1,8 @@
 'use strict'
-
-const showConcertsTemplate = require('../templates/concert-list.handlebars')
-
 const concertEngine = require('../store')
+
+const showConcertsTemplate =
+require('../templates/concert-list.handlebars')
 
 const onGetConcertsSuccess = () => {
   $('.concert-rows').empty()
@@ -11,6 +11,7 @@ const onGetConcertsSuccess = () => {
   $('.concert-rows').append(showConcertsHtml)
   $('#welcome-pg').hide(500)
   $('#concerts-table').show(500)
+  $('.app-header').text('All Concerts')
 }
 
 const onGetConcertsFailure = (error) => {
@@ -25,6 +26,11 @@ const onGetMyConcertSuccess = (response) => {
 
 const onGetMyConcertFailure = (error) => {
   $('div#statusBar').text('Get concert failed. Status = ' + error.status + ' ' + error.statusText)
+  $('div#statusBar').show(3000)
+  $('div#statusBar').hide(5000)
+}
+const onFilterConcertsFailure = (error) => {
+  $('div#statusBar').text('Filter all concerts failed. Status = ' + error.status + ' ' + error.statusText)
   $('div#statusBar').show(3000)
   $('div#statusBar').hide(5000)
 }
@@ -94,6 +100,10 @@ const onGetMyConcertFailure = (error) => {
 // const searchInput = document.querySelector('.search');
 // const suggestions = document.querySelector('.suggestions');
 
+function setSavedConcertBtns (handlebarsHTML) {
+
+}
+
 const findMatches = function (wordToMatch) {
   const filteredConcerts = concertEngine.concerts.filter(concert => {
     // here we need to figure out if the city or state matches what was searched
@@ -124,7 +134,9 @@ module.exports = {
   onGetConcertsFailure,
   onGetMyConcertSuccess,
   onGetMyConcertFailure,
-  displayMatches
+  displayMatches,
+  onFilterConcertsFailure
+
 //   onUpdateConcertSuccess,
 //   onUpdateConcertFailure,
 //   onCreateConcertSuccess,

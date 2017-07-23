@@ -4,7 +4,7 @@ const store = require('../store')
 const profile = require('./../profile/api')
 // const profileUI = require('./../profile/ui')
 
-const signUpSuccess = (data) => {
+const signUpSuccess = () => {
   // please do not leave this in your production application
   // instead, you probably want to manipulate the DOM,
   // for example, put up default view
@@ -49,27 +49,28 @@ const signInSuccess = (data) => {
   // $('#show-my-concerts-btn').show()
   // get profile
   profile.index()
-  .catch((error) => {
-    if (error.status === 404) {
-      console.log('404')
-    } else {
-      console.log(error.status + ' ' + error.statusText)
-    }
+  // .catch((error) => {
+  //   if (error.status === 404) {
+  //     console.log('404')
+  //   } else {
+  //     console.log(error.status + ' ' + error.statusText)
+  //   }
     // $('div#statusBar').text('Could not get your profile -  ' + error.statusText)
     // $('div#statusBar').show(3000)
     // $('div#statusBar').hide(5000)
-  })
-  if (store.profile === undefined) {
-    $('#create-profile-btn').show()
-    $('#update-profile-btn').hide()
-    $('#show-my-concerts-btn').prop('disabled', true)
-    $('#show-concerts-btn').prop('disabled', false)
-  } else {
-    $('#update-profile-btn').show()
-    $('#create-profile-btn').hide()
-    $('#show-concerts-btn').prop('disabled', false)
-    $('#show-my-concerts-btn').prop('disabled', false)
-  }
+  // })
+
+  // if (store.profile) {
+  //   $('#update-profile-btn').show()
+  //   $('#create-profile-btn').hide()
+  //   $('#show-concerts-btn').prop('disabled', false)
+  //   $('#show-my-concerts-btn').prop('disabled', false)
+  // } else {
+  //   $('#create-profile-btn').show()
+  //   $('#update-profile-btn').hide()
+  //   $('#show-my-concerts-btn').prop('disabled', true)
+  //   $('#show-concerts-btn').prop('disabled', false)
+  // }
 }
 
 const signInFailure = () => {
@@ -119,7 +120,8 @@ const signOutSuccess = () => {
 
   // $('#show-my-recipes-btn').prop('disabled', true)
   // $('#add-recipe-btn').prop('disabled', true)
-
+  // $('.app-header').text('&lt;h1&gt;Find Me A Concert&lt;/h1&gt;')
+  $('.app-header').text('Find Me A Concert')
   $('#concerts-table').hide(500)
   $('#welcome-pg').show(500)
 }

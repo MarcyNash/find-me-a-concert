@@ -20,10 +20,9 @@ const onFilterConcerts = function (event) {
   console.log('onFilterConcerts with filter text - ' + data)
   ui.displayMatches(data)
 
+  $('.app-header').text('All Concerts - filtered by - ' + data)
+
   $('#filter-concerts-form').trigger('reset')
-  // api.index()
-  // .then(ui.onGetConcertsSuccess)
-  // .catch(ui.onGetConcertsFailure)
 }
 
 const addHandlers = () => {

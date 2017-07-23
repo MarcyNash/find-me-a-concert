@@ -11,15 +11,27 @@ const index = function () {
       Authorization: 'Token token=' + store.token
     }
   })
-  .then((response) => {
-    console.log('got profile')
+.then((response) => {
+  console.log('got profile')
+  if (!response) {
+    store.profile = null
+    $('#update-profile-btn').hide()
+    $('#create-profile-btn').show()
+    $('#show-concerts-btn').prop('disabled', true)
+    $('#show-my-concerts-btn').prop('disabled', true)
+    $('.app-header').text('Welcome to Find Me A Concert. Please create a profile to view and save concerts.')
+  } else {
     store.profile = response.profile
     $('#update-profile-btn').show()
     $('#create-profile-btn').hide()
     $('#show-concerts-btn').prop('disabled', false)
     $('#show-my-concerts-btn').prop('disabled', false)
-    // initialize update profile dialog
-  })
+    $('.app-header').text('Welcome back to Find Me A Concert!')
+    // const form = $('#update-profile-form')
+    $('.uuser-name').val(store.profile.user_name)
+    $('.uabout-me').text(store.profile.about_me)
+  }
+})
 }
 
 const show = function (data) {
@@ -46,6 +58,8 @@ const update = function (data, id) {
   })
   .then((response) => {
     store.profile = response.profile
+    $('.uuser-name').val(store.profile.user_name)
+    $('.uabout-me').text(store.profile.about_me)
   })
 }
 
@@ -60,6 +74,10 @@ const create = function (data) {
   })
   .then((response) => {
     store.profile = response.profile
+    $('.uuser-name').val(store.profile.user_name)
+    // problem with about_me having old text in update
+    $('.uabout-me').text('')
+    $('.uabout-me').text(store.profile.about_me)
   })
 }
 
