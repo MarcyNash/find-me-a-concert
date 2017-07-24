@@ -59,6 +59,7 @@ const update = function (data, id) {
   .then((response) => {
     store.profile = response.profile
     $('.uuser-name').val(store.profile.user_name)
+    $('.uabout-me').text('')
     $('.uabout-me').text(store.profile.about_me)
   })
 }

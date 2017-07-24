@@ -10,7 +10,6 @@ const onGetMyConcertsSuccess = () => {
   const showConcertsHtml = showConcertsTemplate({ myconcerts: concertEngine.myconcerts })
   $('.concert-rows').append(showConcertsHtml)
 
-  $('.saveConcert')
   $('#welcome-pg').hide(500)
   $('#concerts-table').show(500)
   $('.app-header').text('My Concerts')

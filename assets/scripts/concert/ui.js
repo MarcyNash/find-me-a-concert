@@ -12,6 +12,13 @@ const onGetConcertsSuccess = () => {
   $('#welcome-pg').hide(500)
   $('#concerts-table').show(500)
   $('.app-header').text('All Concerts')
+
+  // const rowCount = $('.concert-rows').children().length
+  // // for (let iRow = 0; iRow < rowCount; iRow++) {
+  //   $('.concert-rows').children()[0].children[0].disabled = true
+  //   // $('.concert-rows').children()[iRow].children()[0].disabled = true
+  //   $('.concert-rows').children()[0].children[0].textContent = 'Saved'
+  // // }
 }
 
 const onGetConcertsFailure = (error) => {
