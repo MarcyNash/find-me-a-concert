@@ -25,14 +25,14 @@ const onCreateProfile = function (event) {
 const onUpdateProfile = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  api.create(data)
+  api.update(data, store.profile.id)
   .then(ui.onUpdateProfileSuccess)
   .catch(ui.onUpdateProfileFailure)
 }
 
 const onDeleteProfile = function (event) {
   event.preventDefault()
-  api.destroy(store.profileID)
+  api.destroy(store.profile.id)
   .then(ui.onDestroyProfileSuccess)
   .catch(ui.onDestroyProfileFailure)
 }

@@ -14,11 +14,18 @@ const onGetConcertsSuccess = () => {
   $('.app-header').text('All Concerts')
 
   // const rowCount = $('.concert-rows').children().length
-  // // for (let iRow = 0; iRow < rowCount; iRow++) {
-  //   $('.concert-rows').children()[0].children[0].disabled = true
-  //   // $('.concert-rows').children()[iRow].children()[0].disabled = true
-  //   $('.concert-rows').children()[0].children[0].textContent = 'Saved'
-  // // }
+  // for (let iRow = 0; iRow < rowCount; iRow++) {
+  //   const dataID = $('.concert-rows').children()[iRow].children[0].prop('data-id')
+  //   for (let i = 0; i < concertEngine.myConcerts.length; i++) {
+  //     if (dataID === concertEngine.myConcerts.concerts.id) {
+  //       $('.concert-rows').children()[iRow].children[0].disabled = true          // $('.concert-rows').children()[iRow].children()[0].disabled = true
+  //       $('.concert-rows').children()[iRow].children[0].textContent = 'Saved'
+  //     }
+  //   }
+  // }
+    // $('.concert-rows').children()[iRow].children[0].disabled = true
+    // $('.concert-rows').children()[iRow].children()[0].disabled = true
+    // $('.concert-rows').children()[iRow].children[0].textContent = 'Saved'
 }
 
 const onGetConcertsFailure = (error) => {
