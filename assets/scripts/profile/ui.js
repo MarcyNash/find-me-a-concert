@@ -4,17 +4,7 @@
 
 const profileEngine = require('../store')
 
-// const onGetProfileSuccess = () => {
-//   $('.profile-rows').empty()
-//
-//   const showProfileHtml = showProfilesTemplate({ profiles: profileEngine.profiles })
-//   $('.profile-rows').append(showProfilesHtml)
-//   $('#welcome-pg').hide(500)
-//   $('#concerts-table').show(500)
-// }
-
 const onGetProfileSuccess = (response) => {
-  console.log('onGetProfileSuccess')
 }
 
 const onGetProfileFailure = (error) => {
@@ -37,14 +27,9 @@ const onUpdateProfileFailure = (error) => {
 
 const onCreateProfileSuccess = () => {
   $('#create-profile-close').click()
-  $('#create-profile-form').trigger('reset')
+  // $('#create-profile-form').trigger('reset')
   $('#update-profile-btn').show()
   $('#create-profile-btn').hide()
-  // const profileToArray = []
-  // profileToArray.push(profileEngine.profile)
-  // const showProfilesHtml = showProfilesTemplate({ profiles: profileToArray })
-  // $('.profile-rows').append(showProfilesHtml)
-  // $('#show-my-profiles-btn').click()
 }
 
 const onCreateProfileFailure = (error) => {

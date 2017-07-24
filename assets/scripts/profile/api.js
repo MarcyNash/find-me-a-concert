@@ -12,11 +12,12 @@ const index = function () {
     }
   })
 .then((response) => {
-  console.log('got profile')
   if (!response) {
     store.profile = null
-    $('#update-profile-btn').hide()
+    // $('#update-profile-btn').hide()
     $('#create-profile-btn').show()
+    $('#show-concerts-btn').show()
+    $('#show-my-concerts-btn').show()
     $('#show-concerts-btn').prop('disabled', true)
     $('#show-my-concerts-btn').prop('disabled', true)
     $('.app-header').text('Welcome to Find Me A Concert. Please create a profile to view and save concerts.')
@@ -24,11 +25,14 @@ const index = function () {
     store.profile = response.profile
     $('#update-profile-btn').show()
     $('#create-profile-btn').hide()
+    $('#show-concerts-btn').show()
+    $('#show-my-concerts-btn').show()
     $('#show-concerts-btn').prop('disabled', false)
     $('#show-my-concerts-btn').prop('disabled', false)
     $('.app-header').text('Welcome back to Find Me A Concert!')
     // const form = $('#update-profile-form')
     $('.uuser-name').val(store.profile.user_name)
+    $('.uabout-me').text('')
     $('.uabout-me').text(store.profile.about_me)
   }
 })
@@ -91,7 +95,6 @@ const destroy = function (profileID) {
     }
   })
     .then((response) => {
-      // console.log(response)
     })
 }
 

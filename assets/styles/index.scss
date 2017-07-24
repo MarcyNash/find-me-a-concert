@@ -1,2 +1,42 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+
+#brand-name {
+  border-radius: 0;
+  color: black;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  padding-top: 15px;
+}
+
+#change-password-btn {
+  display: none;
+}
+
+#sign-out-btn {
+  display: none;
+}
+
+#update-profile-btn {
+  display: none;
+}
+
+#create-profile-btn {
+  display: none;
+}
+
+#show-my-concerts-btn {
+  display: none;
+}
+
+#show-concerts-btn {
+  display: none;
+}
+
+#filter-concerts-form {
+  display: none;
+}

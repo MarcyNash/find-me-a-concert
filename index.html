@@ -23,27 +23,27 @@
     <div class="button-group">
       <button type="button" id="sign-up-btn" class="btn btn-default btn-lg ttt-nav-btns" data-toggle="modal" data-target="#signUp" name="sign-me-up">Sign Up</button>
       <button type="button" id="sign-in-btn" class="btn btn-default btn-lg ttt-nav-btns" data-toggle="modal" data-target="#signIn" name="sign-me-in">Sign In</button>
-      <button type="button" id="change-password-btn" class="btn btn-default btn-lg ttt-nav-btns" disabled="true" data-toggle="modal" data-target="#changePassword" name="change-my-password">Change Password</button>
-      <button type="button" id="sign-out-btn" class="btn btn-default btn-lg ttt-nav-btns" disabled="true" data-toggle="modal" data-target="#signOut" name="sign-me-out">Sign Out</button>
+      <button type="button" id="change-password-btn" class="btn btn-default btn-lg ttt-nav-btns" data-toggle="modal" data-target="#changePassword" name="change-my-password">Change Password</button>
+      <button type="button" id="sign-out-btn" class="btn btn-default btn-lg ttt-nav-btns" data-toggle="modal" data-target="#signOut" name="sign-me-out">Sign Out</button>
       <!-- Buttons are put in reverse from how they appear on the nav bar.  There's probably a better way! -->
+      <div class="navbar-right">
+        <button id="update-profile-btn" type="button"  class="btn btn-default btn-lg ttt-nav-btns" data-target="#updateProfile" data-toggle="modal"  name="update-profile-modal">Update Profile</button>
+      </div>
+      <div class="navbar-right">
+        <button id="create-profile-btn" type="button" class="btn btn-default btn-lg ttt-nav-btns" data-toggle="modal" data-target="#createProfile" name="create-profile">Create Profile</button>
+      </div>
+      <div class="navbar-right">
+        <button id="show-concerts-btn" type="button" class="btn btn-default btn-lg ttt-nav-btns" name="show-concerts">All Concerts</button>
+      </div>
+      <div class="navbar-right">
+        <button id="show-my-concerts-btn" type="button" class="btn btn-default btn-lg ttt-nav-btns" data-target="#showMyConcerts" name="show-my-concerts">My Concerts</button>
+      </div>
       <form id="filter-concerts-form" class="navbar-form navbar-right">
        <div class="form-group">
          <input type="text" class="form-control filterText" placeholder="Filter All Concerts" value="">
        </div>
        <button type="submit" class="btn btn-default">Filter</button>
      </form>
-      <div class="navbar-right">
-        <button id="update-profile-btn" type="button"  class="btn btn-default btn-lg ttt-nav-btns" data-target="#updateProfile" data-toggle="modal"  name="edit-profile-modal">Update Profile</button>
-      </div>
-      <div class="navbar-right">
-        <button id="create-profile-btn" type="button" class="btn btn-default btn-lg ttt-nav-btns" data-toggle="modal" data-target="#createProfile" name="create-profile">Create Profile</button>
-      </div>
-      <div class="navbar-right">
-        <button id="show-concerts-btn" disabled="true" type="button" class="btn btn-default btn-lg ttt-nav-btns" name="show-concerts">All Concerts</button>
-      </div>
-      <div class="navbar-right">
-        <button id="show-my-concerts-btn" disabled="true" type="button" class="btn btn-default btn-lg ttt-nav-btns" data-target="#showMyConcerts" name="show-my-concerts">My Concerts</button>
-      </div>
     </div>
   </nav>
   <!-- </div> -->
@@ -59,10 +59,10 @@
 
   <div class="panel panel-default">
     <div class="panel-heading app-header">
-      <h1>Find Me A Concert</h1></div>
+      <h3>Find Me A Concert</h3></div>
       <div id="welcome-pg">
         <p>
-          <h4>Looking for a concert to go to? Then <span  id="website-name">Find Me A Concert</span> is for you! Keep a list of your recipes and where they are located. To begin, sign up. Then sign in to view upcoming concerts which you can save to your profile. See upcoming concerts in the Boston area !</h4>
+          <h5>Looking for a concert to go to? Then <span  id="website-name">Find Me A Concert</span> is for you! Keep a list of your recipes and where they are located. To begin, sign up. Then sign in to view upcoming concerts which you can save to your profile. See upcoming concerts in the Boston area!</h5>
         </p>
         </div>
       <div id="concerts-table" class="table-responsive concerts-table" hidden="true">

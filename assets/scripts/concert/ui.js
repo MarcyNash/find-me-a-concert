@@ -12,7 +12,9 @@ const onGetConcertsSuccess = () => {
   $('#welcome-pg').hide(500)
   $('#concerts-table').show(500)
   $('.app-header').text('All Concerts')
-
+  $('#filter-concerts-form').show()
+  // $('#filterText').hide()
+  // $('#filter-btn').hide()
   // const rowCount = $('.concert-rows').children().length
   // for (let iRow = 0; iRow < rowCount; iRow++) {
   //   const dataID = $('.concert-rows').children()[iRow].children[0].prop('data-id')
@@ -49,74 +51,9 @@ const onFilterConcertsFailure = (error) => {
   $('div#statusBar').hide(5000)
 }
 
-// const onUpdateConcertSuccess = (response) => {
-//   // $('#show-my-concerts-btn').click()
-//   $('#update-concert-close').click()
-//   $('#show-my-concerts-btn').click()
-// }
+// function setSavedConcertBtns (handlebarsHTML) {
 //
-// const onUpdateConcertFailure = (error) => {
-//   $('div#statusBar').text('Edit concert failed. Status = ' + error.status + ' ' + error.statusText)
-//   $('div#statusBar').show(3000)
-//   $('div#statusBar').hide(5000)
 // }
-//
-// const onCreateConcertSuccess = () => {
-//   $('#add-concert-close').click()
-//   const concertToArray = []
-//   concertToArray.push(concertEngine.concert)
-//   const showConcertsHtml = showConcertsTemplate({ concerts: concertToArray })
-//   $('.concert-rows').append(showConcertsHtml)
-//   $('#show-my-concerts-btn').click()
-// }
-//
-// const onCreateConcertFailure = (error) => {
-//   $('div#statusBar').text('Add concert failed. Status = ' + error.status + ' ' + error.statusText)
-//   $('div#statusBar').show(3000)
-//   $('div#statusBar').hide(5000)
-// }
-//
-// const onDestroyConcertSuccess = () => {
-//   $('#show-my-concerts-btn').click()
-// }
-//
-// const onDestroyConcertFailure = (error) => {
-//   $('div#statusBar').text('Delete concert failed. Status = ' + error.status + ' ' + error.statusText)
-//   $('div#statusBar').show(3000)
-//   $('div#statusBar').hide(5000)
-// }
-
-// function findMatches(wordToMatch, cities) {
-//   return cities.filter(place => {
-//     // here we need to figure out if the city or state matches what was searched
-//     const regex = new RegExp(wordToMatch, 'gi');
-//     return place.city.match(regex) || place.state.match(regex)
-//   });
-// }
-// function numberWithCommas(x) {
-//   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-// }
-// function displayMatches() {
-//   const matchArray = findMatches(this.value, cities);
-//   const html = matchArray.map(place => {
-//     const regex = new RegExp(this.value, 'gi');
-//     const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
-//     const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
-//     return `
-//       <li>
-//         <span class="name">${cityName}, ${stateName}</span>
-//         <span class="population">${numberWithCommas(place.population)}</span>
-//       </li>
-//     `;
-//   }).join('');
-//   suggestions.innerHTML = html;
-// }
-// const searchInput = document.querySelector('.search');
-// const suggestions = document.querySelector('.suggestions');
-
-function setSavedConcertBtns (handlebarsHTML) {
-
-}
 
 const findMatches = function (wordToMatch) {
   const filteredConcerts = concertEngine.concerts.filter(concert => {
@@ -150,11 +87,4 @@ module.exports = {
   onGetMyConcertFailure,
   displayMatches,
   onFilterConcertsFailure
-
-//   onUpdateConcertSuccess,
-//   onUpdateConcertFailure,
-//   onCreateConcertSuccess,
-//   onCreateConcertFailure,
-//   onDestroyConcertSuccess,
-//   onDestroyConcertFailure
 }

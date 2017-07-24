@@ -17,7 +17,6 @@ const signUpSuccess = () => {
 const signUpFailure = (error) => {
   $('#sign-up-close').click()
   $('#sign-up').trigger('reset')
-  $('#sign-up-btn').prop('disabled', false)  // ??? this button automatically disabled after failure
   $('div#statusBar').text('Sign Up failed. Status = ' + error.status + ' ' + error.statusText)
   $('div#statusBar').show(3000)
   $('div#statusBar').hide(5000)
@@ -29,54 +28,18 @@ const signInSuccess = (data) => {
 
   // $('#show-my-recipes-btn').prop('disabled', false)
   // $('#add-recipe-btn').prop('disabled', false)
-  $('#change-password-btn').prop('disabled', false)
-  $('#sign-out-btn').prop('disabled', false)
-  $('#sign-up-btn').prop('disabled', true)
-  $('#sign-in-btn').prop('disabled', true)
+  $('#change-password-btn').toggle('display')
+  $('#sign-out-btn').toggle('display')
+  $('#sign-up-btn').toggle('display')
+  $('#sign-in-btn').toggle('display')
 
-  // $('#create-profile-btn').removeClass('hidden')
-  // $('#update-profile-btn').removeClass('hidden')
-  // $('#show-concerts-btn').removeClass('hidden')
-  // $('#show-my-concerts-btn').removeClass('hidden')
-
-  $('#create-profile-btn').hide()
-  $('#update-profile-btn').hide()
-  // $('#show-my-concerts-btn').hide()
-  // for now
-  // $('#welcome-pg').hide(500)
-  // $('#concerts-table').show(500)
-  // $('#show-concerts-btn').show()
-  // $('#show-my-concerts-btn').show()
   // get profile
   profile.index()
-  // .catch((error) => {
-  //   if (error.status === 404) {
-  //     console.log('404')
-  //   } else {
-  //     console.log(error.status + ' ' + error.statusText)
-  //   }
-    // $('div#statusBar').text('Could not get your profile -  ' + error.statusText)
-    // $('div#statusBar').show(3000)
-    // $('div#statusBar').hide(5000)
-  // })
-
-  // if (store.profile) {
-  //   $('#update-profile-btn').show()
-  //   $('#create-profile-btn').hide()
-  //   $('#show-concerts-btn').prop('disabled', false)
-  //   $('#show-my-concerts-btn').prop('disabled', false)
-  // } else {
-  //   $('#create-profile-btn').show()
-  //   $('#update-profile-btn').hide()
-  //   $('#show-my-concerts-btn').prop('disabled', true)
-  //   $('#show-concerts-btn').prop('disabled', false)
-  // }
 }
 
 const signInFailure = () => {
   $('#sign-in-close').click()   // close sign-in modal dlg
   $('#sign-in').trigger('reset')
-  $('#sign-up-btn').prop('disabled', false)
   $('div#statusBar').text('Sign In failed. Please check that your email and password are correct.')
   $('div#statusBar').show(3000)
   $('div#statusBar').hide(5000)
@@ -88,7 +51,7 @@ const changePasswordSuccess = (data) => {
   // for example, put up default view
   // $('#notifications').text('Password changed.')
   $('#change-password-close').click()
-  $('#change-password-modal').trigger('reset')
+  $('#change-password').trigger('reset')
 }
 
 const changePasswordFailure = (error) => {
@@ -109,14 +72,21 @@ const signOutSuccess = () => {
   $('#sign-out-close').click()
   // $('#start-restart-game').prop('disabled', true)
   // $('#game-statistics').prop('disabled', true)
-  $('#change-password-btn').prop('disabled', true)
-  $('#sign-out-btn').prop('disabled', true)
-  $('#sign-up-btn').prop('disabled', false)
-  $('#sign-in-btn').prop('disabled', false)
-  $('#show-concerts-btn').prop('disabled', true)
-  $('#show-my-concerts-btn').prop('disabled', true)
+  $('#sign-up-btn').toggle('display')
+  $('#sign-in-btn').toggle('display')
+  $('#sign-out-btn').toggle('display')
+  $('#change-password-btn').toggle('display')
+  $('#show-concerts-btn').hide()
+  $('#show-my-concerts-btn').hide()
+  $('#filter-concerts-form').hide()
   $('#update-profile-btn').hide()
   $('#create-profile-btn').hide()
+  store.myconcerts = null
+  store.concerts = null
+  store.profile = null
+  store.id = null
+  store.email = null
+  store.token = null
 
   // $('#show-my-recipes-btn').prop('disabled', true)
   // $('#add-recipe-btn').prop('disabled', true)

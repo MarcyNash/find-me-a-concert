@@ -5,6 +5,7 @@ const showConcertsTemplate = require('../templates/myconcert-list.handlebars')
 const concertEngine = require('../store')
 
 const onGetMyConcertsSuccess = () => {
+  $('#filter-concerts-form').hide()
   $('.concert-rows').empty()
 
   const showConcertsHtml = showConcertsTemplate({ myconcerts: concertEngine.myconcerts })
@@ -21,28 +22,6 @@ const onGetMyConcertsFailure = (error) => {
   $('div#statusBar').hide(5000)
 }
 
-// const onGetMyConcertSuccess = (response) => {
-//
-// }
-
-// const onGetMyConcertFailure = (error) => {
-//   $('div#statusBar').text('Get concert failed. Status = ' + error.status + ' ' + error.statusText)
-//   $('div#statusBar').show(3000)
-//   $('div#statusBar').hide(5000)
-// }
-
-// const onUpdateConcertSuccess = (response) => {
-//   // $('#show-my-concerts-btn').click()
-//   $('#update-concert-close').click()
-//   $('#show-my-concerts-btn').click()
-// }
-//
-// const onUpdateConcertFailure = (error) => {
-//   $('div#statusBar').text('Edit concert failed. Status = ' + error.status + ' ' + error.statusText)
-//   $('div#statusBar').show(3000)
-//   $('div#statusBar').hide(5000)
-// }
-//
 const onCreateMyConcertSuccess = () => {
   // $('#add-concert-close').click()
   const concertToArray = []
@@ -75,10 +54,4 @@ module.exports = {
   onCreateMyConcertFailure,
   onDestroyMyConcertSuccess,
   onDestroyMyConcertFailure
-//   onUpdateConcertSuccess,
-//   onUpdateConcertFailure,
-//   onCreateConcertSuccess,
-//   onCreateConcertFailure,
-//   onDestroyConcertSuccess,
-//   onDestroyConcertFailure
 }

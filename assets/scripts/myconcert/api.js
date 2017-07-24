@@ -26,7 +26,6 @@ const create = function (data) {
     data
   })
   .then((response) => {
-    // store.myConcerts.push(response.concert)
   })
 }
 
@@ -39,14 +38,11 @@ const destroy = function (myConcertID) {
     }
   })
     .then((response) => {
-      // console.log(response)
     })
 }
 
 module.exports = {
   index,
-  // show,
-  // update,
   create,
   destroy
 }
