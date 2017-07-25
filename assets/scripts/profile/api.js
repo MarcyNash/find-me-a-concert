@@ -32,8 +32,8 @@ const index = function () {
     $('.app-header').text('Welcome back to Find Me A Concert!')
     // const form = $('#update-profile-form')
     $('.uuser-name').val(store.profile.user_name)
-    $('.uabout-me').text('')
-    $('.uabout-me').text(store.profile.about_me)
+    // $('.uabout-me').text('')
+    $('.uabout-me').val(store.profile.about_me)
   }
 })
 }
@@ -63,8 +63,8 @@ const update = function (data, id) {
   .then((response) => {
     store.profile = response.profile
     $('.uuser-name').val(store.profile.user_name)
-    $('.uabout-me').text('')
-    $('.uabout-me').text(store.profile.about_me)
+    // $('.uabout-me').text('')
+    $('.uabout-me').val(store.profile.about_me)
   })
 }
 
@@ -81,8 +81,8 @@ const create = function (data) {
     store.profile = response.profile
     $('.uuser-name').val(store.profile.user_name)
     // problem with about_me having old text in update
-    $('.uabout-me').text('')
-    $('.uabout-me').text(store.profile.about_me)
+    // $('.uabout-me').text('')
+    $('.uabout-me').val(store.profile.about_me)
   })
 }
 
