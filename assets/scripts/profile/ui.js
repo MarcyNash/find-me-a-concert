@@ -27,9 +27,12 @@ const onUpdateProfileFailure = (error) => {
 
 const onCreateProfileSuccess = () => {
   $('#create-profile-close').click()
-  // $('#create-profile-form').trigger('reset')
+  $('#create-profile-form').trigger('reset')
   $('#update-profile-btn').show()
   $('#create-profile-btn').hide()
+  $('#show-concerts-btn').prop('disabled', false)
+  $('#show-my-concerts-btn').prop('disabled', false)
+  $('.app-header').text('Welcome to Find Me A Concert!')
 }
 
 const onCreateProfileFailure = (error) => {
