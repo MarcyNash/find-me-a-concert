@@ -2,6 +2,7 @@
 
 const config = require('../config')
 const store = require('../store')
+const myconcerts = require('./../myconcert/api')
 
 const index = function () {
   return $.ajax({
@@ -34,6 +35,10 @@ const index = function () {
     $('.uuser-name').val(store.profile.user_name)
     // $('.uabout-me').text('')
     $('.uabout-me').val(store.profile.about_me)
+
+    // Get user's list of my concerts. The user's saved concerts
+    // are needed to disallow saving already saved concerts.
+    myconcerts.index()
   }
 })
 }

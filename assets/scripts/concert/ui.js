@@ -5,29 +5,16 @@ const showConcertsTemplate =
 require('../templates/concert-list.handlebars')
 
 const onGetConcertsSuccess = () => {
+  const savedConcerts = setSavedConcerts(concertEngine.concerts)
+
   $('.concert-rows').empty()
 
-  const showConcertsHtml = showConcertsTemplate({ concerts: concertEngine.concerts })
+  const showConcertsHtml = showConcertsTemplate({ concerts: savedConcerts })
   $('.concert-rows').append(showConcertsHtml)
   $('#welcome-pg').hide(500)
   $('#concerts-table').show(500)
   $('.app-header').text('All Concerts')
   $('#filter-concerts-form').show()
-  // $('#filterText').hide()
-  // $('#filter-btn').hide()
-  // const rowCount = $('.concert-rows').children().length
-  // for (let iRow = 0; iRow < rowCount; iRow++) {
-  //   const dataID = $('.concert-rows').children()[iRow].children[0].prop('data-id')
-  //   for (let i = 0; i < concertEngine.myConcerts.length; i++) {
-  //     if (dataID === concertEngine.myConcerts.concerts.id) {
-  //       $('.concert-rows').children()[iRow].children[0].disabled = true          // $('.concert-rows').children()[iRow].children()[0].disabled = true
-  //       $('.concert-rows').children()[iRow].children[0].textContent = 'Saved'
-  //     }
-  //   }
-  // }
-    // $('.concert-rows').children()[iRow].children[0].disabled = true
-    // $('.concert-rows').children()[iRow].children()[0].disabled = true
-    // $('.concert-rows').children()[iRow].children[0].textContent = 'Saved'
 }
 
 const onGetConcertsFailure = (error) => {
@@ -36,15 +23,6 @@ const onGetConcertsFailure = (error) => {
   $('div#statusBar').hide(5000)
 }
 
-const onGetMyConcertSuccess = (response) => {
-
-}
-
-const onGetMyConcertFailure = (error) => {
-  $('div#statusBar').text('Get concert failed. Status = ' + error.status + ' ' + error.statusText)
-  $('div#statusBar').show(3000)
-  $('div#statusBar').hide(5000)
-}
 const onFilterConcertsFailure = (error) => {
   $('div#statusBar').text('Filter all concerts failed. Status = ' + error.status + ' ' + error.statusText)
   $('div#statusBar').show(3000)
@@ -52,8 +30,37 @@ const onFilterConcertsFailure = (error) => {
 }
 
 // function setSavedConcertBtns (handlebarsHTML) {
+//   if (concertEngine.myconcerts && concertEngine.myconcerts.length > 0) {
+//     // const testidfromobj = concertEngine.myconcerts[0].concert.id
+//     // const test = $('.concert-rows').find(`[data-id="79"]`)
+//     // const test = $('.concert-rows').find(`[data-id="79"]`)
+//     for (let i = 0; i < concertEngine.myconcerts.length; i++) {
+//       const concertId = concertEngine.myconcerts[i].concert.id
+//       $('.concert-rows').find(`[data-id="[${concertId}"]`).children().find('button#saveConcert').textContent('Saved')
+//       // $('.concert-rows').find(`[data-id="[${concertId}"]`).children().find('button#saveConcert')('option', 'Saved')
+//       // $('.concert-rows').find(`[data-id="[${concertId}"]`).children().find('button#saveConcert').('option', 'label','Saved')
 //
+//       $('.concert-rows').find(`[data-id="${concertId}"]`).children().find('button#saveConcert').prop('disabled', true)
+//     }
+//   }
 // }
+
+function setSavedConcerts (concertArray) {
+  const saveConcertsArray = concertArray
+  for (let c = 0; c < saveConcertsArray.length; c++) {
+    if (concertEngine.myconcerts && concertEngine.myconcerts.length > 0) {
+      for (let m = 0; m < concertEngine.myconcerts.length; m++) {
+        if (saveConcertsArray[c].id === concertEngine.myconcerts[m].concert.id) {
+          saveConcertsArray[c].saved = true
+          break
+        } else {
+          saveConcertsArray[c].saved = false
+        }
+      }
+    }
+  }
+  return saveConcertsArray
+}
 
 const findMatches = function (wordToMatch) {
   const filteredConcerts = concertEngine.concerts.filter(concert => {
@@ -73,18 +80,15 @@ const findMatches = function (wordToMatch) {
 
 function displayMatches (filterText) {
   const matchArray = findMatches(filterText)
+  const savedMatchArray = setSavedConcerts(matchArray)
   $('.concert-rows').empty()
-  const showConcertsHtml = showConcertsTemplate({concerts: matchArray})
+  const showConcertsHtml = showConcertsTemplate({concerts: savedMatchArray})
   $('.concert-rows').append(showConcertsHtml)
-  // $('#welcome-pg').hide(500)
-  // $('#concerts-table').show(500)
 }
 
 module.exports = {
   onGetConcertsSuccess,
   onGetConcertsFailure,
-  onGetMyConcertSuccess,
-  onGetMyConcertFailure,
   displayMatches,
   onFilterConcertsFailure
 }
