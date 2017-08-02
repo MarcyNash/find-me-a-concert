@@ -20,8 +20,8 @@ const onSaveConcert = function (event) {
   }
   // const data = getFormFields(event.target)
   api.create(data)
-  .then(ui.onSaveConcertSuccess)
-  .catch(ui.onSaveConcertFailure)
+  .then(ui.onCreateMyConcertSuccess)
+  .catch(ui.onCreateMyConcertFailure)
 }
 
 const onGetMyConcerts = function (event) {

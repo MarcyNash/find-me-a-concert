@@ -24,11 +24,11 @@ const onGetMyConcertsFailure = (error) => {
 
 const onCreateMyConcertSuccess = () => {
   // $('#add-concert-close').click()
-  const concertToArray = []
-  concertToArray.push(concertEngine.concert)
-  const showConcertsHtml = showConcertsTemplate({ concerts: concertToArray })
-  $('.concert-rows').append(showConcertsHtml)
-  $('#show-my-concerts-btn').click()
+  // const concertToArray = []
+  // concertToArray.push(concertEngine.concert)
+  // const showConcertsHtml = showConcertsTemplate({ concerts: concertToArray })
+  // $('.concert-rows').append(showConcertsHtml)
+  // $('#show-my-concerts-btn').click()
 }
 
 const onCreateMyConcertFailure = (error) => {

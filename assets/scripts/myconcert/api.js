@@ -26,6 +26,7 @@ const create = function (data) {
     data
   })
   .then((response) => {
+    store.myconcerts.push(response.myconcert)
   })
 }
 

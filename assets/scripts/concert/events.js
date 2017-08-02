@@ -20,6 +20,7 @@ const onFilterConcerts = function (event) {
   $('.app-header').text('All Concerts - filtered by - ' + data)
 
   $('#filter-concerts-form').trigger('reset')
+  .catch(ui.onFilterConcertsFailure)
 }
 
 const addHandlers = () => {
@@ -29,5 +30,6 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers,
-  onGetConcerts
+  onGetConcerts,
+  onFilterConcerts
 }
