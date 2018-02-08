@@ -14,7 +14,7 @@
     </head>
     <body class="container-fluid">
 
-      <nav class="navbar navbar-default navbar-static-top">
+      <nav class="navbar navbar-static-top">
         <div class="navbar-header">
         <span id="brand-name" class="navbar-brand" href="#">Find Me A Concert</span>
 
@@ -26,23 +26,23 @@
       <button type="button" id="change-password-btn" class="btn btn-default btn-lg ttt-nav-btns" data-toggle="modal" data-target="#changePassword" name="change-my-password">Change Password</button>
       <button type="button" id="sign-out-btn" class="btn btn-default btn-lg ttt-nav-btns" data-toggle="modal" data-target="#signOut" name="sign-me-out">Sign Out</button>
       <!-- Buttons are put in reverse from how they appear on the nav bar.  There's probably a better way! -->
-      <div class="navbar-right">
+      <div class="navbar-right nr-style">
         <button id="update-profile-btn" type="button"  class="btn btn-default btn-lg ttt-nav-btns" data-target="#updateProfile" data-toggle="modal"  name="update-profile-modal">Update Profile</button>
       </div>
-      <div class="navbar-right">
+      <div class="navbar-right nr-style">
         <button id="create-profile-btn" type="button" class="btn btn-default btn-lg ttt-nav-btns" data-toggle="modal" data-target="#createProfile" name="create-profile">Create Profile</button>
       </div>
-      <div class="navbar-right">
+      <div class="navbar-right nr-style">
         <button id="show-concerts-btn" type="button" class="btn btn-default btn-lg ttt-nav-btns" name="show-concerts">All Concerts</button>
       </div>
-      <div class="navbar-right">
+      <div class="navbar-right nr-style">
         <button id="show-my-concerts-btn" type="button" class="btn btn-default btn-lg ttt-nav-btns" data-target="#showMyConcerts" name="show-my-concerts">My Concerts</button>
       </div>
-      <form id="filter-concerts-form" class="navbar-form navbar-right">
+      <form id="filter-concerts-form" class="navbar-form navbar-right nr-style transparent-background">
        <div class="form-group">
-         <input type="text" class="form-control filterText" placeholder="Filter All Concerts" value="">
+         <input type="text" class="form-control filterText sunflower-background" placeholder="Filter All Concerts" value="">
        </div>
-       <button type="submit" class="btn btn-default">Filter</button>
+       <button type="submit" class="btn btn-default sunflower-background">Filter</button>
      </form>
     </div>
   </nav>
@@ -57,9 +57,9 @@
 </div>
 
 
-  <div class="panel panel-default">
+  <div class="panel">
     <div class="panel-heading app-header">
-      <h3>Find Me A Concert</h3></div>
+      <h5>Find Me A Concert</h5></div>
       <div id="welcome-pg">
         <p>
           <h5>Looking for a concert to go to? Then <span  id="website-name">Find Me A Concert</span> is for you! Keep a list of your recipes and where they are located. To begin, sign up. Then sign in to view upcoming concerts which you can save to your profile. See upcoming concerts in the Boston area!</h5>

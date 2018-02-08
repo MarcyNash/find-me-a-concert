@@ -1,5 +1,6 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import 'colors';
 
 
 #brand-name {
@@ -9,9 +10,23 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   font-size: 24px;
   font-weight: 800;
   letter-spacing: 1px;
-  margin-top: 10px;
-  padding-top: 15px;
+  margin-top: 30px;
+  padding-top: 25px;
 }
+
+#welcome-pg {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.panel {
+  background-color: tint($irises, 80);
+}
+
+.app-header {
+  background-color: tint($irises, 30);
+}
+
 
 #change-password-btn {
   display: none;
@@ -39,4 +54,50 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 #filter-concerts-form {
   display: none;
+}
+
+.sunflower-background {
+  background-color: tint($sunflowers, 50);
+}
+
+.transparent-background {
+  // background-color: tint($sunflowers, 50);
+  // background-blend-mode: overlay;
+  opacity: 1;
+    filter: alpha(opacity=100); /* For IE8 and earlier */
+}
+
+.nr-style {
+  margin-right: 15px;
+  padding-left: 5px;
+}
+
+.ttt-nav-btns {
+  padding: 5px;
+  margin-left: 15px;
+  margin-top: 15px;
+  background-color: tint($sunflowers, 50);
+}
+
+// img {
+//   filter: alpha(opacity = 50); //For IE8 and earlier
+//   opacity: .8;
+// }
+
+
+
+
+body, html {
+  // background-blend-mode: multiply;
+  background-blend-mode: screen;
+  background-color: $starry-night;
+  // background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(''../images/marius-masalar-410695.jpg'');
+  background-image: url('../images/marius-masalar-410695.jpg');
+  //Center and scale the image nicely
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  // opacity: .3;
+  width: 100%;
 }

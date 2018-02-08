@@ -4,10 +4,15 @@ $gray: #e5e5e5;
 $pure-white: #fff;
 $pure-black: #000;
 
+$medium-orchid: #ba55d3;
+$starry-night: #0375c4;
+$irises: #007839;
+$sunflowers: #ffce00;
+
 @function tint ($color, $percentage) {
-  return mix($pure-white, $color, $percentage);
+  @return mix($pure-white, $color, $percentage);
 }
 
 @function shade ($color, $percentage) {
-  return mix($pure-black, $color, $percentage);
+  @return mix($pure-black, $color, $percentage);
 }

@@ -1,11 +1,11 @@
 # Find Me A Concert
-"Find Me A Concert" is an app that shows which concerts are available locally in the Boston area. Rather than checking multiple local concert websites, the end goal of this app is to scrape the websites to get the concert data and save it in the Rails database. 
+"Find Me A Concert" is an app that shows which concerts are available locally in the Boston area. Rather than checking multiple local concert websites, the end goal of this app is to scrape the websites to get the concert data and save it in the Rails database.
 
 *IMPORTANT LINKS*
 Deployed Client-Side App:
-https://the-best-org-lab.github.io/drip-drop-frontend/
+https://MarcyNash.github.io/find-me-a-concert/
 Front-End Repo:
-https://github.com/MarcyNash/concerts-api
+https://github.com/MarcyNash/find-me-a-concert
 Deployed Backend API:
 https://salty-shore-97321.herokuapp.com/
 Backend Repo:
